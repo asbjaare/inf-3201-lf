@@ -1,7 +1,7 @@
 ## 1 General questions (15%)
 
-<h3/> a) On which type of parallel computing resources or computers do you
-typically run MPI programs? Use figure 1 as an example. </h3>
+<h3/> a) What type(s) of parallelism would you use to fully utilize the 
+infrastructure in Figure 1? We expect concepts, not libraries.</h3>
 
 To fully utilize the infrastructure depicted in Figure 1, you would want to
 consider both data parallelism and task parallelism:
