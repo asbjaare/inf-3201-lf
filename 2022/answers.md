@@ -427,18 +427,18 @@ In the context of parallelizing the given code (Listing 1) with OpenMP,
 let's analyze the potential for a race condition:
 
 ### Analyzing the Given Code for Race Conditions
-1. **Data Access Patterns**: The key to identifying a race condition is to look
-2. at how data is accessed and modified. In the provided code, the primary
-3. data structures are a two-dimensional grid (`gridValues`) and a matrix
-4. for storing the path to the local minima (`minimaPath`).
+1. **Data Access Patterns**: The key to identifying a race condition is to look 
+at how data is accessed and modified. In the provided code, the primary
+data structures are a two-dimensional grid (`gridValues`) and a matrix
+for storing the path to the local minima (`minimaPath`).
 
-5. **Functions Behavior**:
+2. **Functions Behavior**:
    - `findLocalMinima` iterates over the grid and modifies `minimaPath` based
    on the values in `gridValues`. 
    - `tracePathToMinima` and `findRandomMinima` functions read from `minimaPath`
    and `gridValues` but do not modify them.
 
-6. **Parallelization with OpenMP**:
+3. **Parallelization with OpenMP**:
    - If parallelized, the `findLocalMinima` function could potentially be
    executed by multiple threads, each working on different parts of the grid.
    - Since each cell in the grid is independent in terms of how its local
